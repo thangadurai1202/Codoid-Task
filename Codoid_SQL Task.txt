@@ -1,0 +1,171 @@
+
+ Codoid Interview Task - SQL
+
+
+
+1) What are Scalar functions and write a query?
+
+
+   Scalar functions return a single value from an input value.
+
+   
+  * UCASE()  - SELECT UCASE(column_name) FROM table_name;
+
+  * LCASE()  - SELECT LCASE(column_name) FROM table_name;
+
+  * MID()    - SELECT MID(column_name,start,length) FROM table_name;
+
+  * LEN()    - SELECT LENGTH(column_name) FROM table_name;
+
+  * ROUND()  - SELECT ROUND(column_name,decimals) FROM table_name; 
+
+  * NOW()    - SELECT NOW() FROM table_name;
+
+  * FORMAT() - SELECT FORMAT(column_name,format) FROM table_name; 
+
+
+
+2) Explain joins with example and output?
+
+
+   JOINS in SQL are commands which are used to combine rows from two or more tables, 
+   based on a related column between those tables.
+   
+
+  There are mainly four types of joins with example and output below,
+  
+  "Consider the two tables Student, Student_Course"
+
+  
+  * INNER JOIN -  SELECT Student_Course.COURSE_ID, Student.NAME 
+                  FROM Student INNER JOIN Student_Course ON Student.ROLL_NO = Student_Course.ROLL_NO;
+                 
+    (OUTPUT =  Returns records that have matching values in both tables)
+
+
+  * FULL JOIN  - SELECT Student.NAME,Student_Course.COURSE_ID 
+                 FROM Student FULL JOIN Student_Course  ON Student_Course.ROLL_NO = Student.ROLL_NO;
+
+    (OUTPUT = Returns all those records which either have a match in the student table or the student_course table)
+
+
+  * LEFT JOIN   - SELECT Student.NAME,Student_Course.COURSE_ID 
+                  FROM Student LEFT JOIN Student_Course ON Student_Course.ROLL_NO = Student.ROLL_NO;
+
+    (OUTPUT = Returns all records from the Student table, and the matched records from the Student_Course table)
+
+
+  * RIGHT JOIN  - SELECT Student.NAME,Student_Course.COURSE_ID 
+                  FROM Student RIGHT JOIN Student_Course ON Student_Course.ROLL_NO = Student.ROLL_NO;
+   
+    (OUTPUT = Returns all records from the Student_Course table, and the matched records from the Student table)
+
+
+
+
+3) Write a SQL query to Rename the column name?
+
+
+     ALTER TABLE table_name RENAME COLUMN oldcolumn_name to newcolumn_name;
+
+
+
+4) Write a SQL query to find duplicate records?
+
+
+
+     SELECT EmpID, COUNT(EmpID)
+     FROM Employees GROUP BY EmpID HAVING COUNT(EmpID) > 1;
+
+
+
+5) How do we use the DISTINCT statement? What are its use?
+
+
+   
+   DISTINCT clause is used to remove the duplicates columns.
+   
+     SELECT DISTINCT Salary
+     FROM Employees;
+
+
+   * Uses :  DISTINCT keyword to columns accepts only unique data values
+
+
+
+
+6) Remove duplicate from the table? 
+
+   
+     SELECT DISTINCT * FROM Employee;
+
+
+
+
+7) Print max salary for a particular department?
+
+
+     SELECT DEPT_ID, MAX(SALARY) FROM department GROUP BY DEPT_ID;
+
+
+
+8) Use different operators in SQL? 
+
+
+  * SQL Arithmetic Operators (+, -, *, /, %)
+
+  * SQL Bitwise Operators (&, |, ^)
+
+  * SQL Comparison Operators (= , > , < , >= , <= , <>)
+
+  * SQL Logical Operators (ALL, AND, ANY, BETWEEN, EXISTS, IN, LIKE, NOT, OR, SOME)
+
+
+
+9) What is Query to display first 5 Records from Employee table?
+
+
+
+     SELECT TOP 5* FROM Employee;
+
+               (OR)
+
+     SELECT * FROM Employee where Rownum <= 5;
+
+
+
+10) What is Query to display last 5 Records from Employee table?
+
+
+
+      SELECT * FROM (SELECT TOP 5 * FROM Employee ORDER BY ID DESC) ORDER BY id ASC;
+
+                             (OR)
+
+      SELECT * FROM Employee  where rownum <=5 union 
+      SELECT * FROM (SELECT * FROM Employee ORDER BY rowid desc) where rownum <=5;
+
+
+
+11) How to fetch 3rd highest salary using Rank Function?
+
+
+      SELECT * FROM (Select Dense_Rank() OVER ( ORDER BY  salary desc) AS ID from Employee) where ID=3;
+
+
+
+
+12) How Can i create table with same structure with data of Employee table?
+
+
+     Create table Employee1 AS SELECT * FROM Employee;
+
+
+
+
+13) Find Query to get information of Employee where Employee is not assigned to the department?
+
+
+    SELECT * FROM Employee where Dept_no Not in(SELECT Dept_no from Department);
+
+
