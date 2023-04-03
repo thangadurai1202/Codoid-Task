@@ -1,0 +1,291 @@
+
+
+
+  Codoid Interview Task - Selenium
+
+
+
+
+1) Write code for handling multiple windows?
+
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.Iterator;
+import java.util.Set;		
+
+public class multipleWinows {				
+  public static void main(String[] args) throws InterruptedException {									
+    System.setProperty("webdriver.chrome.driver","C:\Users\durai\Desktop\Java\chromedriver.exe");
+    WebDriver driver = new ChromeDriver();
+    driver.manage().window().maximize();
+    driver.get("https://demoqa.com/browser-windows");
+   
+
+    driver.findElement(By.id("windowButton")).click();
+    driver.findElement(By.id("messageWindowButton")).click();
+    
+    String MainWindow = driver.getWindowHandle();
+    System.out.println("Main window handle is " + MainWindow);
+
+ 
+    Set<String> t1 = driver.getWindowHandles();
+    System.out.println("Child window handle is" + t1);
+    Iterator<String> s1 = t1.iterator();
+
+      while (s1.hasNext()) {
+          String ChildWindow = s1.next();
+          if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
+              driver.switchTo().window(ChildWindow);
+              driver.close();
+              System.out.println("Child window closed");
+           }
+       }
+    }
+}
+
+
+
+
+
+2)  Write code for positive and negative scenarios for Alerts
+
+
+
+Possitive Scenarios Example : 
+
+
+     * Validate if the user logs in successfully if the credentials entered are correct
+
+
+     * Validate if the already logged in user is signed out of the system when logout is clicked
+
+
+Negative Scenarios Example :
+
+
+     * Validate if the user is not allowed access when the credentials entered are incorrect.
+
+     * Validate if the user does not log out when logout link is clicked
+
+
+
+
+
+4) Write code for handling Frames?
+
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
+public class HandlingFrame {
+   public static void main(String[] args) {
+      System.setProperty("webdriver.chrome.driver", "C:\Users\durai\Desktop\Java\chromedriver.exe");
+      WebDriver driver = new ChromeDriver();
+      String url = "url with frames";
+      driver.get(url);
+      driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
+  
+      driver.switchTo().frame(0);
+     
+      driver.switchTo().frame(“<<name expression>>“);
+     
+      WebElement name = driver.findElement(By.name(“frame-right”));
+      driver.switchTo().frame(driver.findElement(By.name(“<<name expression”)));
+      driver.quit();
+   }
+}
+
+
+
+
+
+6)  Select multiple options from the dropdown?
+
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.ui.Select
+public class MultiDrpDwn{
+   public static void main(String[] args) {
+      System.setProperty("webdriver.gecko.driver",
+         "C:\Users\durai\Desktop\Java\geckodriver.exe");
+      WebDriver driver = new FirefoxDriver();
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+      driver.manage().window().maximize();
+      driver.get("https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm");
+      WebElement d= driverfindElement(By.xpath("//select[@name='selenium_commands']"));
+
+      Select s=new Select(d);
+   
+      List t =s.getOptions();
+      System.out.println("Options are: ");
+      for (WebElement i: t){
+         System.out.println(i.getText());
+      }
+    
+      Boolean b=s.isMultiple();
+
+      System.out.println("Boolen value for drodown: "+ b);
+     
+      s.selectByIndex(2);
+      Thread.sleep(1000);
+     
+      s.selectByVisibleText("Wait Commands");
+      Thread.sleep(1000);
+    
+      WebElement f = s.getFirstSelectedOption();
+      System.out.println("First selected option is: "+ f.getText());
+   
+      s.deselectByIndex(2);
+      Thread.sleep(1000);
+    
+      s.deselectAll();
+      driver.close();
+   }
+}
+
+
+
+
+
+7)  How to do file upload in Selenium??
+
+
+    
+    WebElement upload_file = driver.findElement(By.xpath("//input[@id='file_up']"));
+
+    upload_file.sendKeys("C:/Users/Durai/Desktop/upload.png");
+
+
+
+
+
+8) Write code for taking Screenshot?
+
+
+
+
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Screenshot {
+
+public static void main(String[] args) throws Exception {
+System.setProperty("webdriver.chrome.driver", "C:\Users\durai\Desktop\Java\chromedriver.exe");
+WebDriver driver = new ChromeDriver();
+driver.get("https://demoqa.com/browser-windows");
+TakesScreenshot ts = (TakesScreenshot)driver;
+File source = ts.getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(source, new File("./Screenshots/Screen.png"));
+System.out.println("the Screenshot is taken");
+driver.quit();
+}
+}
+ 
+
+
+
+
+10) Write test scenario for Credit Cards?
+
+
+
+
+   * Check the maximum credit limit of the card.
+
+   * Check the maximum withdrawal limit of the credit card.
+
+   * Check whether international transactions are allowed on the card or not.
+
+   * Check whether domestic transactions are allowed or not.
+
+   * Check if the user can withdraw cash using the credit card or not.
+
+   * Check users can withdraw cash by using a valid pin.
+
+   * Check user can withdraw cash by using an invalid pin.
+
+
+
+
+
+
+13) How to perform upload files using selenium?
+
+
+
+
+ 
+     Upload files using Selenium Webdriver. This is achieved by the sendKeys method. 
+     We have to first identify the element which performs the file selection by mentioning the 
+     file path [to be uploaded]. This is only applied to an element having a type attribute set 
+     to file as a value along with the element tag name as input . The below code for file upload..
+
+
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class UploadFiles{
+
+   public static void main(String[] args) {
+
+      System.setProperty("webdriver.chrome.driver", "C:\Users\durai\Desktop\Java\chromedriver.exe");
+
+      WebDriver driver = new ChromeDriver();
+
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+      driver.get("https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm");
+
+      WebElement m=driver.findElement(By.xpath("//input[@type='file']"));
+
+
+      m.sendKeys("C:\Users\Pictures\Logo.jpg");
+
+      driver.close();
+
+   }
+
+}
+
+
+
+
+
+
+15) How to find more than one web element in the list??
+
+
+
+    FindElements() command in WebDriver can be used to find more than one 
+    web elements.  
