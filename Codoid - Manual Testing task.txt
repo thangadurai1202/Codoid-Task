@@ -1,0 +1,144 @@
+
+
+ Codoid Interview Task - Manual Testing
+
+
+
+4)   Write a few testcases for booking tickers in redbus?
+
+
+    * Registration by user valid email adresss
+
+    * Registration by user invalid email adress
+
+    * Check customer login with valid data
+
+    * check  customer login with invalid data
+
+    * Search and buy bus ticket by valid road name and bus name.
+
+    * Search and buy bus ticket by invalid road name and bus name
+
+
+
+7) Write any 5 Negative testcases?
+
+
+
+   * Verify if a user cannot login with a valid username and an invalid password.
+
+   * Verify the login page for both, when the field is blank and Submit button is clicked.
+
+   * To verify that entered multiple times incorrect password.
+
+   * Verify if the length of the phone number is incorrect i.e less than 10.
+
+   * Verify if the length of the phone number is incorrect i.e greater than 10.
+
+   * Verify if the login page allows to login simultaneously with same credentials in a different browser at the same time.
+
+   * Log in to the account using an old password.
+
+
+
+
+
+8) Write a few test cases for the IRCTC Web Application?
+
+
+
+
+      * Check whether the page can log in without providing the user with any details.
+
+      * Check and try to log in to the page with three characteristics user name.
+
+      * Check and log in to the page with a valid usernameCheck and log in to the page with the correct username and invalid password
+
+      * Check and log in to the page with a valid username and valid password.
+
+      * Check whether the password is encrypted form while entering the same
+
+      * Check whether the application is accepting the date in DD/MM/YY format
+
+      * Check whether the application is recognizing the time in MM/DD/YY format
+
+      * Check the date by entering the same in MM/DD/YY but execute the test by providing the single-digit value for the date and month.
+
+
+
+
+
+
+
+9) Write a few test cases for the SpiceJet Web Application?
+
+
+
+   * Verify that the SpiceJet home page is accessible to the user.
+
+   * Verify that clicking on the header links the page is navigate to an appropriate page.
+
+   * Verify that place the mouse pointer over the login guest login section is displayed to the user.
+
+   * Verify the functionality of “guest” section on the login pop up.
+
+   * Verify the functionality of “agent” section on the login pop up.
+
+   * Verify the functionality of “corporate” section on the login pop up.
+
+   * Logout link is displayed to the user when user login in to the application.
+
+
+
+
+11)  Create 10 gherkin test case for amazon website?
+
+
+
+
+   * Verify that home page is displayed after login or not .
+
+   * Verify that user name is displayed on home page or not.
+
+   * Verify that features product are displayed in the home page .
+
+   * Verify that search functionality is present on the home page.
+
+   * Verify tha home page of application on different browser.
+
+   * Verify the alignment on the home page.
+
+   * Verify that products displayed on home page are clickable.
+
+   * Verify that when user clicked on a product user should be redirected to Product specification page.
+ 
+   * Verify that user profile Section is present on home.
+
+   * Verify that product displayed on home page are catagorised.
+
+
+
+
+12) Create 10 test cases for amazon mobile view?
+
+
+
+
+   * Verify user able to login Enter Valid Username,Enter Valid Password.
+
+   * Click on “Forgot Password” Link and find out forgot password page.
+
+   * Click on Create new account button and verify if it takes to new account page.
+
+   * Select “Keep me signed in” option to retain login session.
+
+   * Enter invalid username and valid password.Enter valid username and invalid password.
+
+   * Enter invalid username and password.
+
+   * Keep one field blank either username or password and check login.
+
+
+
+
+
