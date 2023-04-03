@@ -1,0 +1,943 @@
+
+Codoid Interview Task - Java
+
+
+
+
+2) How do we reverse a string?
+
+
+   There are many ways to reverse String in Java. We can reverse String using 
+   StringBuffer, String Builder, iteration etc...
+
+   First convert the input string to a StringBuffer, using the StringBuffer method. 
+   Then use the reverse() method to reverse the string.
+
+
+
+
+3) Write a program that detects the duplicate characters in a string?
+
+
+   public class Example {
+   public static void main(String argu[]) {
+      String str = "Hello world";
+      char[] carray = str.toCharArray();
+      System.out.println("The string is:" + str);
+      System.out.print("Duplicate Characters in above string are: ");
+      for (int i = 0; i < str.length(); i++) {
+         for (int j = i + 1; j < str.length(); j++) {
+            if (carray[i] == carray[j]) {
+               System.out.print(carray[j] + " ");
+               break;
+            }
+         }
+      }
+   }
+}
+
+
+
+
+4) Write a Program to remove duplicates in an ArrayList?
+
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+class Main {
+  public static void main(String[] args) {
+
+    ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 1, 3));
+    System.out.println("ArrayList with duplicate elements: " + numbers);
+
+    Set<Integer> set = new LinkedHashSet<>();
+    set.addAll(numbers);
+
+    numbers.clear(); 
+
+    numbers.addAll(set);
+    System.out.println("ArrayList without duplicate elements: " + numbers);
+  }
+}
+
+
+
+
+5) Write a program to demonstrate method overriding?
+
+
+
+   class Animal {
+   public void displayInfo() {
+      System.out.println("I am an animal.");
+   }
+}
+
+class Dog extends Animal {
+   public void displayInfo() {
+      System.out.println("I am a dog.");
+   }
+}
+
+class Main {
+   public static void main(String[] args) {
+      Dog d1 = new Dog();
+      d1.displayInfo();
+   }
+}
+
+
+
+
+6) How is an infinite loop declared in Java?
+
+
+
+   Infinite loop is an instruction sequence that loops endlessly when a terminating condition isn't met. 
+   Creating an infinite loop might be a programming error, but may also be intentional based on the application behavior.
+
+class Main {
+
+  public static void main(String args[]) {
+    while (true) {
+      System.out.println("Hello World");
+    }
+  }
+}
+
+
+
+
+7) Write a program to demonstrate the method overloading by changing data types?
+
+
+
+class Demo{  
+static int add(int a,int b){
+return a+b;
+}  
+static int add(int a,int b,int c){
+return a+b+c;
+}  
+}  
+class TestOverloading{  
+public static void main(String[] args){  
+System.out.println(Demo.add(11,11));  
+System.out.println(Demo.add(11,11,11));  
+}}  
+
+
+
+
+8) Write a program to demonstrate the method overloading by changing a number of arguments?
+
+
+
+class Demo{  
+static int add(int a, int b){return a+b;}  
+static double add(double a, double b){return a+b;}  
+}  
+class TestOverloading{  
+public static void main(String[] args){  
+System.out.println(Demo.add(11,11));  
+System.out.println(Demo.add(12.3,12.6));  
+}}  
+
+
+
+
+
+10) What is getname in java with example?
+
+
+    The getName() method of java Class class is used to get the name of the entity, and 
+    that entity can be class, interface, array, method, etc. of the class object.
+
+
+Example :
+
+
+import java.lang.*;
+
+public class Demo {
+
+   public static void main(String[] args) {
+
+      Demo cl = new Demo();
+      Class c1Class = cl.getClass();
+
+      String name = c1Class.getName();
+      System.out.println("Class Name = " + name);
+   }
+}
+
+
+
+
+
+
+12) "Write a program to generate the following output in java?
+*
+**
+***
+****
+*****
+******
+
+
+
+        public class Patternprinting {
+	
+	public static void main(String[] args) {
+	for(int i =0; i<=5; i++) {
+		for(int j =0; j<=i; j++) {
+			System.out.print("*");
+		}
+	System.out.println();
+	}
+	}
+}
+
+
+
+
+13) How to find duplicate characters in a string in Java?
+
+    
+    To find the duplicate character from the string, we count the occurrence of each 
+    character in the string. If count is greater than 1, it implies that a character has a 
+    duplicate entry in the string.
+
+
+
+
+14) How to remove special characters from a string in java?
+
+
+
+public class RemoveSpecialCharacter  
+{  
+public static void main(String[] args)   
+{    
+String str="Hello@^wo#rld";  
+String resultStr="";  
+for (int i=0;i<str.length();i++)  
+{  
+if (str.charAt(i)>64 && str.charAt(i)<=122)   
+{    
+resultStr=resultStr+str.charAt(i);  
+}  
+}  
+System.out.println("String after removing special characters: "+resultStr);  
+}  
+}  
+
+
+
+15) How to remove duplicate elements from an array in Java?
+
+
+    Remove duplicate element in an array by 2 ways: 
+
+    Using temporary array or using separate index. To remove the duplicate element from array, 
+    the array must be in sorted order. If array is not sorted, you can sort it by calling Arrays.sort(arr) method.
+
+
+
+
+16) How to sort array in java?
+
+
+    Sort array in Java in ascending and descending order using the sort() method 
+    and without using the sort() method.
+
+    * Using the sort() Method
+    * Without using the method
+         Using the for Loop
+         Using the User Defined Method  
+
+
+
+17) Write a program to do bubble sort on an array in java?
+
+
+
+
+   public class BubbleSort {
+   public static void main(String []args) {
+	String str[] = { "Naveen", "Thangadurai", "Aadhi", "Ranjith" };
+	String temp;
+	System.out.println("Strings in sorted order:");
+	for (int j = 0; j < str.length; j++) {
+   	   for (int i = j + 1; i < str.length; i++) {
+		// comparing adjacent strings
+		if (str[i].compareTo(str[j]) < 0) {
+			temp = str[j];
+			str[j] = str[i];
+			str[i] = temp;
+		}
+	   }
+	   System.out.println(str[j]);
+	}
+   }
+} 
+
+
+
+19) Write Java program that checks if two arrays contain the same elements?
+
+
+
+import java.util.*;
+class Main
+{
+public static void main(String[] args) 
+  {
+    Object[] a = new Object[] {1, 5, 7, 9};
+    Object[] b = new Object[] {9, 5, 1, 7};
+    Object[] c = new Object[] {1, 6, 7, 5};
+      
+    Arrays.sort(a);
+    Arrays.sort(b);
+    Arrays.sort(c);
+
+    boolean x = Arrays.equals(a,b);
+    System.out.println("Array a and b equal?: " + x);
+
+    boolean y = Arrays.equals(b,c);
+    System.out.println("Array b and c equal: " + y);
+  }
+}
+
+
+
+20) Write a Java program to show a NullPointerException?  
+
+
+
+import java.io.*;
+ 
+class CheckNullPointerException
+{
+    public static void main (String[] args)
+    {
+        String ptr = null;
+ 
+        try
+        {
+            if (ptr.equals("Hello world"))
+                System.out.print("Same");
+            else
+                System.out.print("Not Same");
+        }
+        catch(NullPointerException e)
+        {
+            System.out.print("NullPointerException Caught");
+        }
+    }
+}
+
+
+
+23) What is Stringjoiner in Java 8?
+
+
+    
+    StringJoiner is used to construct a sequence of characters separated by a delimiter and 
+    optionally starting with a supplied prefix and ending with a supplied suffix.
+
+
+
+
+
+24) Write a Java program to print stars using for loop, where the number of stars printed should be equal to the row number?
+
+
+
+
+import java.util.Scanner;
+
+public class Pattern {
+	public static void main(String[] args) 
+	{
+		int rows, columns, i, j;
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print(" Please Enter Number of Rows : ");
+		rows = sc.nextInt();	
+		
+		System.out.print(" Please Enter Number of Columns : ");
+		columns = sc.nextInt();		
+			
+		for(i = 1; i <= rows; i++)
+		{
+			for(j = 1; j <= columns; j++)
+			{
+				System.out.print("* "); 
+			}
+			System.out.print("\n"); 
+		}	
+	}
+}
+
+
+
+
+25) Write a Java program to demonstrate the usage of break and continue statements inside while loop?
+
+
+
+public class Main{
+public static void main(String[] args) {
+  int i=0;
+  while(i<=15){
+    System.out.println("Number : "+ i);
+    i+=5;
+      if(i==10){
+      break;
+      }
+  }
+}}
+
+
+
+
+26) Write a Java Program to print the below output: * 1 * 12 * 123 * 1234 * 12345 * 123456 * 1234567?
+
+
+
+
+public class Main
+{
+public static void main(String[] args)
+{
+for(int i=1;i<=5;i++)
+{
+for(int j=1;j<=i;j++)
+{
+System.out.print(j);
+}
+System.out.println();
+}
+}
+}
+
+
+
+
+28) Implement factorial using recursion?
+
+
+
+ public class Factorial {
+  static int factorial(int n) {
+    if (n == 0) {
+      return 1;
+    }
+    return n * factorial(n - 1);
+  }
+  public static void main(String[] args) {
+    System.out.println("Factorial of the number 5 is: " + factorial(5));
+  }
+}
+
+
+
+
+29) Implement multiple inheritances using an interface?
+
+
+
+
+interface Car{
+  void drive();
+  void car_kit();
+}
+
+interface Bike{
+  void drive();
+  void bike_kit();
+}
+
+class Bus implements Bike, Car {
+  public void drive(){
+    System.out.println("Driving a bus");
+  }
+
+  public void car_kit(){
+    System.out.println("Using the car kit for Hybrid Car");
+  }
+  public void bike_kit(){
+    System.out.println("Using the bike kit for Hybrid Car");
+  }
+}
+
+class Main {
+  public static void main(String args[]) {
+   
+    Bus obj = new Bus();
+
+    obj.drive();
+    obj.car_kit();
+    obj.bike_kit();
+  }
+}
+
+
+
+
+31) Implement method overloading & overriding in java?
+
+
+
+MethodOverloading :
+
+
+
+import java.io.*;
+  
+public class MethodOverloading{
+  
+    static int add(int a, int b) 
+    { 
+      return a + b; 
+    }
+  
+    static int add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+  
+    public static void main(String args[])
+    {
+          System.out.println("add() with 2 parameters");
+        System.out.println(add(4, 6));
+        
+          System.out.println("add() with 3 parameters");
+        System.out.println(add(4, 6, 7));
+    }
+}
+
+
+
+MethodOverriding :
+
+
+
+import java.io.*;
+
+public class Animal {
+
+	void eat()
+	{
+		System.out.println("eat() method of base class");
+		System.out.println("eating.");
+	}
+}
+
+public class Dog extends Animal {
+
+	void eat()
+	{
+		System.out.println("eat() method of derived class");
+		System.out.println("Dog is eating.");
+	}
+}
+
+public class MethodOverriding {
+
+	public static void main(String args[])
+	{
+		Dog d1 = new Dog();
+		Animal a1 = new Animal();
+
+		d1.eat();
+		a1.eat();
+
+		Animal animal = new Dog();
+		animal.eat();
+	}
+}
+
+
+
+
+33) Implement a program to merge two Arrays?
+
+
+
+public class MergeTwoArrays {
+
+	public static void main(String[] args) {
+	
+		 int a[] = { 1, 3, 3, 5 };
+	        int b[] = { 2, 4, 6, 6 };
+	        int a1 = a.length;
+	        int b1 = b.length;  
+	        int c1 = a1 + b1;
+	        int[] c = new int[c1];
+	        for (int i = 0; i < a1; i = i + 1) { 
+	            c[i] = a[i];
+	        }	      
+	        for (int i = 0; i < b1; i = i + 1) {
+	            c[a1 + i] = b[i];
+	        }
+	        for (int i = 0; i < c1; i = i + 1) {
+	            System.out.print(c[i] +" ");
+	        }
+	    
+	}   
+
+}
+
+
+
+
+36) Write a Java Program for Fibonacci series?
+
+
+
+
+public class FibbonocciSeries {
+
+	public static void main(String[] args) {
+		int n1 = 0, n2 =1, n3;
+		System.out.print(n1 + " "+ n2);
+		for(int i =0; i<=10; i++) {
+			n3 = n1+n2;
+			System.out.print(" "+ n3);
+			n1= n2;
+			n2=n3;
+		}
+
+	}
+
+}
+
+
+
+41) swap two numbers without using temporary variable?
+
+
+
+
+import java.util.Arrays;
+
+public class SwapanArray {
+		public static void main(String[] args)
+		   {
+		      int a[] = {1,3,5};
+		      int b[] = {2,4,6};
+		      if(a.length == b.length) {
+		    	  int c  ;
+		    	  for(int i=0; i<a.length; i++) {
+		    		  c =a[i];
+		    		  a[i]=b[i];
+		    		  b[i]=c;
+		    	  } System.out.println("After Swapping: ") ;
+		    	  } System.out.println(Arrays.toString(a));
+		      System.out.println(Arrays.toString(b));
+		   }}
+
+
+
+
+44) Find duplicate elements in a string? 
+
+
+
+public class FindDuplicateValue {
+
+	public static void main(String[] args) {
+	int arr[] = {1, 2, 5, 3, 7, 2, 5};
+	System.out.print("Duplicate number is : ");
+	for(int i = 0; i<arr.length-1; i++) {
+	for(int j =i+1; j<arr.length; j++) {
+		if(arr[i]==arr[j]) {
+			System.out.print(arr[i]);
+		}
+	}
+	}
+	}
+
+}
+
+
+
+
+
+53) Write a Java Program to find whether a string or number is palindrome or not?
+
+
+
+
+public class Main {
+
+     public static void main(String[] args) {
+     int r,sum=0,temp;    
+     int n=454;
+     temp=n;    
+     while(n>0){    
+     r=n%10;  
+     sum=(sum*10)+r;    
+     n=n/10;    
+    } 
+     if(temp==sum)    
+      System.out.println("palindrome number ");    
+     else    
+      System.out.println("not palindrome");   
+
+ }
+
+}
+
+
+
+54) Implement more than one interface in a single class? 
+
+
+
+
+interface FirstInterface {
+  public void myMethod(); 
+
+interface SecondInterface {
+  public void myOtherMethod();
+}
+
+
+class DemoClass implements FirstInterface, SecondInterface {
+  public void myMethod() {
+    System.out.println("Hello world..");
+  }
+}
+
+class MyMainClass {
+  public static void main(String[] args) {
+    DemoClass myObj = new DemoClass();
+    myObj.myMethod();
+  }
+}
+
+
+
+56)  Implement a program for encapsulation?
+
+
+
+public class FirstName {
+private String name;
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+}
+class Test{
+public static void main(String[] args) {
+FirstName s=new FirstName ();
+s.setName("Thangadurai");
+System.out.println(s.getName());
+}
+}
+
+
+
+57) convert string to char and vice versa?
+
+    
+    We can convert String to char in java using charAt() method of String class.
+
+
+
+
+59) Implement a program for abstraction?
+
+
+
+
+abstract class Bike {
+  public abstract void bikeSound();
+  
+  public void sleep() {
+    System.out.println("Zzz");
+  }
+}
+
+class Car extends Bike {
+  public void bikeSound() {
+    System.out.println("The pig says: wee wee");
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Car sc = new Car(); 
+    sc.bikeSound();
+    sc.sleep();
+  }
+}
+
+
+
+
+61) Convert arraylist into string?
+
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+class GFG {
+
+    public static void main(String[] args)
+    {
+
+        ArrayList<String> al = new ArrayList<String>();
+ 
+        al.add("Thangadurai");
+
+        al.add("Naveen");
+
+        al.add("Aadhi");
+
+        al.add("Ranjith");
+
+        String[] str = new String[al.size()];
+
+        for (int i = 0; i < al.size(); i++) {
+            str[i] = al.get(i);
+        }
+
+        for (String k : str) {
+            System.out.println(k);
+        }
+    }
+}
+
+
+   
+
+64) Nested If Else clause in java?
+
+
+
+ class example
+{
+    public static void main(String args[])
+    {
+        int n = 50;
+
+        if( n == 50){
+            if( n <=50){
+                System.out.println("Correct");
+            }
+            else{
+                System.out.println("Wrong");
+            }
+        }
+        else{
+            System.out.println("Wrong");
+        }
+    }
+}
+
+
+
+79) How to create Method Overriding program in java?
+
+
+
+
+    import java.io.*;
+
+public class Animal {
+
+	void eat()
+	{
+		System.out.println("eat() method of base class");
+		System.out.println("eating.");
+	}
+}
+
+public class Dog extends Animal {
+
+	void eat()
+	{
+		System.out.println("eat() method of derived class");
+		System.out.println("Dog is eating.");
+	}
+}
+
+public class MethodOverriding {
+
+	public static void main(String args[])
+	{
+		Dog d1 = new Dog();
+		Animal a1 = new Animal();
+
+		d1.eat();
+		a1.eat();
+
+		Animal animal = new Dog();
+		animal.eat();
+	}
+}
+
+
+
+74) How to check Odd and Even Number in java.?
+
+
+import java.util.Scanner;
+
+public class EvenOdd {
+
+    public static void main(String[] args) {
+
+        Scanner reader = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = reader.nextInt();
+
+        if(num % 2 == 0)
+            System.out.println(num + " is even");
+        else
+            System.out.println(num + " is odd");
+    }
+}
+
+
+80) How to create Find Factorial No using Recursion Program in java?
+
+
+
+
+public class Factorial{
+      public static void main(String args[]){
+      
+      int i,fact=1;
+      for(i=1;i<=5;i++){
+      fact=fact*i;
+}
+      System.out.println("Factorial of "+number+" is: "+fact);
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
